@@ -9,20 +9,15 @@ export function AboutPage() {
         {copy.about.heading}
       </h1>
 
-      <p className="mt-4 max-w-4xl text-xl font-medium italic leading-8 text-heading">
+      <p className="mt-5 max-w-4xl border-l-4 border-emerald-500 pl-4 text-xl font-medium italic leading-8 text-heading">
         “{copy.about.tagline}”
       </p>
 
-      <div className="mt-10 grid max-w-5xl gap-x-12 gap-y-7 lg:grid-cols-2">
-        {copy.about.description.map((paragraph, index) => (
+      <div className="mt-10 max-w-4xl space-y-7">
+        {copy.about.description.map((paragraph) => (
           <p
             key={paragraph}
-            className={[
-              'text-lg leading-8 text-body',
-              index === copy.about.description.length - 1
-                ? 'lg:col-span-2 lg:max-w-4xl'
-                : '',
-            ].join(' ')}
+            className="text-lg leading-8 text-body"
           >
             {paragraph}
           </p>

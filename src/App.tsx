@@ -13,6 +13,7 @@ import { HomePage } from './pages/HomePage'
 import { ProjectsPage } from './pages/ProjectsPage'
 import { SkillsPage } from './pages/SkillsPage'
 import { ProjectDetailPage } from './pages/ProjectDetailPage'
+import { ExperiencePage } from './pages/ExperiencePage'
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
         <Route
           path="/projects/:slug"
           element={<ProjectDetailPage />}
+        />
+        <Route
+          path="/experience"
+          element={<ExperiencePage />}
         />
         <Route path="/skills" element={<SkillsPage />} />
         <Route

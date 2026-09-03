@@ -4,6 +4,7 @@ export interface NavigationContent {
   intro: string
   about: string
   projects: string
+  experience: string
   skills: string
   education: string
   contact: string
@@ -30,6 +31,10 @@ export interface ProjectContent {
   title: string
   summary: string
   description: string
+  organization?: {
+    name: string
+    url: string
+  }
   technologies: string[]
   features: string[]
   challenges: string[]
@@ -86,12 +91,30 @@ export interface ContactContent {
   footerText: string
 }
 
+export interface ExperienceItem {
+  role: string
+  organization: string
+  period: string
+  description: string
+  location?: string
+  employmentType?: string
+  isLatest?: boolean
+}
+
+export interface ExperienceContent {
+  heading: string
+  tagline: string
+  description: string
+  items: ExperienceItem[]
+}
+
 export interface PortfolioContent {
   navigation: NavigationContent
   intro: IntroContent
   about: AboutContent
   projects: ProjectsContent
   skills: SkillsContent
+  experience: ExperienceContent
   education: EducationContent
   contact: ContactContent
 }

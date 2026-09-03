@@ -16,9 +16,11 @@ export function HomePage() {
           {copy.intro.title}
         </p>
 
-        <p className="mt-6 text-xl font-medium italic leading-8 text-heading">
-          “{copy.intro.tagline}”
-        </p>
+        <div className="mt-7">
+          <h2 className="inline-block border-b-4 border-emerald-500 pb-1 text-2xl font-bold leading-8 tracking-tight text-heading">
+            {copy.intro.tagline}
+          </h2>
+        </div>
 
         <p className="mt-5 max-w-2xl text-lg leading-8 text-body">
           {copy.intro.description}
@@ -40,7 +42,8 @@ export function HomePage() {
 
           <a
             href="/resume/nguyen-truong-duy-cv.pdf"
-            download
+            target="_blank"
+            rel="noreferrer"
             className="rounded-lg border border-line bg-canvas px-4 py-2.5 text-sm font-medium text-heading transition-colors hover:bg-surface"
           >
             {copy.intro.downloadResume}

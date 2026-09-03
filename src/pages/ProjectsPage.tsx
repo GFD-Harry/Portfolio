@@ -10,15 +10,15 @@ export function ProjectsPage() {
         {copy.projects.heading}
       </h1>
 
-      <p className="mt-4 max-w-3xl text-xl font-medium italic leading-8 text-heading">
+      <p className="mt-5 border-l-4 border-emerald-500 pl-4 text-xl font-medium italic leading-8 text-heading">
         “{copy.projects.tagline}”
       </p>
 
-      {copy.projects.description && (
+      {/* {copy.projects.description && (
         <p className="mt-6 max-w-3xl text-lg leading-8 text-body">
           {copy.projects.description}
         </p>
-      )}
+      )} */}
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {copy.projects.items.map((project) => (

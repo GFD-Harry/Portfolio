@@ -23,6 +23,11 @@ export function Sidebar() {
       end: false,
     },
     {
+      to: '/experience',
+      label: copy.navigation.experience,
+      end: false,
+    },
+    {
       to: '/skills',
       label: copy.navigation.skills,
       end: false,

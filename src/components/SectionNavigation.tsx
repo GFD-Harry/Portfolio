@@ -10,6 +10,7 @@ export function SectionNavigation() {
     { path: '/', label: copy.navigation.intro },
     { path: '/about', label: copy.navigation.about },
     { path: '/projects', label: copy.navigation.projects },
+    { path: '/experience', label: copy.navigation.experience },
     { path: '/skills', label: copy.navigation.skills },
     { path: '/education', label: copy.navigation.education },
     { path: '/contact', label: copy.navigation.contact },

@@ -9,7 +9,7 @@ export function EducationPage() {
         {copy.education.heading}
       </h1>
 
-      <p className="mt-3 text-lg font-medium italic text-heading">
+      <p className="mt-5 border-l-4 border-emerald-500 pl-4 text-xl font-medium italic leading-8 text-heading">
         “{copy.education.tagline}”
       </p>
 
