@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router'
 
 import { useLanguage } from '../contexts/useLanguage'
+import { useProfile } from '../contexts/useProfile'
 
 export function SectionNavigation() {
   const { pathname } = useLocation()
   const { language, copy } = useLanguage()
+  const { buildPath } = useProfile()
 
   const sections = [
     { path: '/', label: copy.navigation.intro },
@@ -16,9 +18,11 @@ export function SectionNavigation() {
     { path: '/contact', label: copy.navigation.contact },
   ]
 
-  const currentPath = pathname.startsWith('/projects/')
+  const profileBasePath = buildPath()
+  const relativePath = pathname.slice(profileBasePath.length) || '/'
+  const currentPath = relativePath.startsWith('/projects/')
     ? '/projects'
-    : pathname
+    : relativePath
   const currentIndex = sections.findIndex(
     (section) => section.path === currentPath,
   )
@@ -39,7 +43,7 @@ export function SectionNavigation() {
     >
       {previous ? (
         <Link
-          to={previous.path}
+          to={buildPath(previous.path)}
           className="group justify-self-start py-2"
         >
           <span className="block text-sm font-medium uppercase tracking-wider text-muted">
@@ -55,7 +59,7 @@ export function SectionNavigation() {
 
       {next && (
         <Link
-          to={next.path}
+          to={buildPath(next.path)}
           className="group justify-self-end py-2 text-right"
         >
           <span className="block text-sm font-medium uppercase tracking-wider text-muted">

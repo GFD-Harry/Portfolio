@@ -5,18 +5,20 @@ import {
 } from 'react-router'
 
 import { useLanguage } from '../contexts/useLanguage'
+import { useProfile } from '../contexts/useProfile'
 import type { ProjectContent } from '../types/content'
 
 export function ProjectDetailPage() {
   const { slug } = useParams()
   const { language, copy } = useLanguage()
+  const { buildPath } = useProfile()
 
   const project = copy.projects.items.find(
     (item) => item.slug === slug,
   )
 
   if (!project) {
-    return <Navigate to="/projects" replace />
+    return <Navigate to={buildPath('/projects')} replace />
   }
 
   const labels =
@@ -43,7 +45,7 @@ export function ProjectDetailPage() {
   return (
     <article>
       <Link
-        to="/projects"
+        to={buildPath('/projects')}
         className="text-sm text-muted hover:text-heading"
       >
         ← {labels.back}

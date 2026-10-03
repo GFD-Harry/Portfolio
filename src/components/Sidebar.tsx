@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router'
 
 import { useLanguage } from '../contexts/useLanguage'
+import { useProfile } from '../contexts/useProfile'
 import { LanguageToggle } from './LanguageToggle'
 
 export function Sidebar() {
   const { copy } = useLanguage()
+  const { buildPath } = useProfile()
 
   const navigationItems = [
     {
@@ -63,7 +65,7 @@ export function Sidebar() {
           {navigationItems.map((item) => (
             <li key={item.to}>
               <NavLink
-                to={item.to}
+                to={buildPath(item.to)}
                 end={item.end}
                 style={{ fontWeight: 700 }}
                 className={({ isActive }) =>

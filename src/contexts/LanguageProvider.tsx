@@ -6,8 +6,10 @@ import {
 
 import type { ReactNode } from 'react'
 
-import { content } from '../data/content'
-import type { Language } from '../types/content'
+import type {
+  Language,
+  PortfolioContent,
+} from '../types/content'
 import {
   LanguageContext,
   type LanguageContextValue,
@@ -29,10 +31,12 @@ function getInitialLanguage(): Language {
 
 interface LanguageProviderProps {
   children: ReactNode
+  content: Record<Language, PortfolioContent>
 }
 
 export function LanguageProvider({
   children,
+  content,
 }: LanguageProviderProps) {
   const [language, setLanguage] =
     useState<Language>(getInitialLanguage)
@@ -61,7 +65,7 @@ export function LanguageProvider({
       },
       copy: content[language],
     }),
-    [language],
+    [content, language],
   )
 
   return (

@@ -1,9 +1,11 @@
 import { Link } from 'react-router'
 
 import { useLanguage } from '../contexts/useLanguage'
+import { useProfile } from '../contexts/useProfile'
 
 export function Footer() {
   const { copy } = useLanguage()
+  const { buildPath } = useProfile()
 
   return (
     <footer className="mt-20 border-t border-line pt-8">
@@ -33,7 +35,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-heading">
+              <Link to={buildPath('/contact')} className="hover:text-heading">
                 {copy.navigation.contact}
               </Link>
             </li>

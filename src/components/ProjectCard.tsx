@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 
 import { useLanguage } from '../contexts/useLanguage'
+import { useProfile } from '../contexts/useProfile'
 import type { ProjectContent } from '../types/content'
 
 interface ProjectCardProps {
@@ -11,10 +12,11 @@ export function ProjectCard({
   project,
 }: ProjectCardProps) {
   const { language } = useLanguage()
+  const { buildPath } = useProfile()
 
   return (
     <Link
-      to={`/projects/${project.slug}`}
+      to={buildPath(`/projects/${project.slug}`)}
       className="group block h-full rounded-2xl border border-line bg-canvas p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-surface hover:shadow-md"
     >
       <article className="flex h-full min-h-52 flex-col">

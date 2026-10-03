@@ -10,14 +10,11 @@ import '@fontsource/inter/900.css'
 import './index.css'
 
 import App from './App.tsx'
-import { LanguageProvider } from './contexts/LanguageProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <LanguageProvider>
-        <App />
-      </LanguageProvider>
+      <App />
     </BrowserRouter>
   </StrictMode>,
 )

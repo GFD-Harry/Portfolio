@@ -6,6 +6,7 @@ import {
 import { NavLink } from 'react-router'
 
 import { useLanguage } from '../contexts/useLanguage'
+import { useProfile } from '../contexts/useProfile'
 
 function formatElapsed(seconds: number) {
   const minutes = Math.floor(seconds / 60)
@@ -16,6 +17,7 @@ function formatElapsed(seconds: number) {
 
 export function TopBar() {
   const { language } = useLanguage()
+  const { buildPath } = useProfile()
   const [localTime, setLocalTime] = useState('')
   const [isPlaying, setIsPlaying] = useState(false)
   const [elapsed, setElapsed] = useState(0)
@@ -75,7 +77,7 @@ export function TopBar() {
     <header className="fixed inset-x-0 top-0 z-50 h-24 border-b border-line bg-canvas/95 backdrop-blur">
       <div className="flex h-full w-full items-center justify-between gap-4 px-8 text-sm">
         <NavLink
-          to="/"
+          to={buildPath()}
           style={{
             fontSize: '40px',
             fontWeight: 900,
